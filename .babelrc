@@ -1,0 +1,33 @@
+{
+  "presets": [
+    ["env", {
+      "loose": true,
+      "modules": false
+    }]
+  ],
+  "plugins": ["transform-object-rest-spread"],  
+  "env": {
+    "cjs": {
+      "presets": [
+        ["env", {
+          "loose": true,
+          "modules": "commonjs"
+        }]
+      ],
+      "plugins": ["add-module-exports"]
+    },
+    "rollup": {
+      "plugins": ["external-helpers"]
+    },
+    "test": {
+      "presets": [
+        ["env", {
+          "loose": true,
+          "modules": "commonjs",
+          "targets": { "node": "current" }
+        }]
+      ],
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}

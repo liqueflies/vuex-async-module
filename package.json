@@ -1,5 +1,5 @@
 {
-  "name": "vuex-async-module",
+  "name": "@liqueflies/vuex-async-module",
   "version": "0.0.1",
   "description": "vuex async module generator.",
   "main": "dist/index.js",

@@ -4,9 +4,9 @@
 
 ## Installation
 ``` bash
-  npm install vuex-async-module --save
+  npm install @liqueflies/vuex-async-module --save
   # or
-  yarn add vuex-async-module
+  yarn add @liqueflies/vuex-async-module
 ```
 
 ## Introduction
@@ -42,7 +42,7 @@ We can notice that in many cases we will write the same code over and over again
 ## Basic usage
 
 ```js
-import getAsyncModule from 'vuex-async-module'
+import getAsyncModule from '@liqueflies/vuex-async-module'
 
 export default new Vuex.Store({
   state, // your state,
@@ -59,7 +59,7 @@ export default new Vuex.Store({
 and then in your `.vue`
 
 ```js
-import asyncMixin from 'vuex-async-module/src/mixin'
+import asyncMixin from '@liqueflies/vuex-async-module/src/mixin'
 
 export default {
   // component `name` is the same as module name

@@ -1,5 +1,6 @@
 import { mapState, mapActions } from 'vuex'
 import camelCase from 'lodash.camelcase'
+import capitalize from 'lodash.capitalize'
 
 export default {
   beforeCreate () {
@@ -16,16 +17,8 @@ export default {
       {},
       this.$options.methods,
       mapActions(name, {
-        [`getAsync${camelCase(name)}`]: 'getAsync'
+        [`getAsync${capitalize(camelCase(name))}`]: 'getAsync'
       })
     )
-  },
-
-  beforeMount () {
-    if (this.url === undefined) {
-      throw new TypeError('You must provide a url property in `data` with your endpoint')
-    } else {
-      this[`getAsync${camelCase(this.$options.name)}`]({ url: this.url })
-    }
   }
 }

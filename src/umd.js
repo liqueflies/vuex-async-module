@@ -1,5 +1,5 @@
 import getAsyncModule from './index'
-import mixin from './mixin'
+import asyncModuleMixin from './mixin'
 
-export { mixin }
+export { asyncModuleMixin }
 export default getAsyncModule

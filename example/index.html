@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/vuex@3.0.1"></script>
     <script src="https://unpkg.com/axios/dist/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
-    <script src="http://localhost:3001/umd/vuex-async-module.js"></script>
+    <script src="/vuex-async-module.js"></script>
     <script type="text/babel">
       const store = new Vuex.Store({
         modules: {
@@ -26,7 +26,7 @@
             url: 'https://ghibliapi.herokuapp.com/films'
           }
         },
-        mixins: [VuexAsyncModule.mixin],
+        mixins: [VuexAsyncModule.asyncModuleMixin],
         template: `<h4 v-if="moviesRequestIsPending"> Loading... </h4>
           <ul v-else>
             <li
@@ -35,7 +35,10 @@
               <h2> {{ movie.title }} - {{ movie.release_date }} </h2>
               <p> {{ movie.description }} </p>
             </li>
-          </ul>`
+          </ul>`,
+        beforeMount () {
+          this.getAsyncMovies({url: this.url })
+        }
       })
       
       new Vue({

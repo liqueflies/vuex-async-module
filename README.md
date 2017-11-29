@@ -59,21 +59,21 @@ export default new Vuex.Store({
 and then in your `.vue`
 
 ```js
-import asyncMixin from '@liqueflies/vuex-async-module/src/mixin'
+import { asyncModuleMixin } from '@liqueflies/vuex-async-module'
 
 export default {
   // component `name` is the same as module name
   name: 'movies',
-  // data should have url for the async call
-  data: function () {
-    url: 'https://ghibliapi.herokuapp.com/films'
-  },
   // include mixin for automatically bind two computed props:
   // [componentName]RequestIsPending i.e moviesRequestIsPending
   // [componentName] i.e. movies
   // and a method!
   // getAsync[componentName] i.e. getAsyncMovies(url, forceUpdate)
-  mixins: [asyncMixin]
+  mixins: [asyncModuleMixin],
+  // place this call where you prefer, here we will use `beforeMount`
+  beforeMount () {
+    this.getAsyncMovies({ url: 'https://ghibliapi.herokuapp.com/films' })
+  }
 }
 ```
 
@@ -90,10 +90,7 @@ and in the template
 
 ## Documentation
 
-`vuex-async-module` has two conventions
-- `component` name must be the same of `module` name.
-- your data with `url` must contain the endpoint for the ajax call.
-
+`vuex-async-module` has only one constrain: `component` name must be the same of `module` name.
 
 `vuex-async-module` mixin adds two `computed` properties:
 

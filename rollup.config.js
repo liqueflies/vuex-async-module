@@ -31,6 +31,7 @@ const baseConfig = {
 export default [
   Object.assign({
     output: {
+      exports: 'named',
       file: 'umd/vuex-async-module.js',
       name: 'VuexAsyncModule',
       format: 'umd',
@@ -41,6 +42,7 @@ export default [
   }, baseConfig),
   Object.assign({
     output: {
+      exports: 'named',
       file: 'umd/vuex-async-module.min.js',
       name: 'VuexAsyncModule',
       format: 'umd',

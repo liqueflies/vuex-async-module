@@ -1,5 +1,5 @@
 
-/*! @liqueflies/vuex-async-module - v0.0.4
+/*! @liqueflies/vuex-async-module - v0.0.5
  * https://github.com/liqueflies/vuex-async-module
  * Copyright (c) 2017 - [object Object];
  * Licensed MIT

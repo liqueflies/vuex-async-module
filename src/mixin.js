@@ -21,7 +21,7 @@ export default {
       this.$options.methods,
       {
         [`getAsync${upperFirst(camelCase(name))}`]: function () {
-          this.$store.dispatch(`${name}/getAsync`, ...arguments)
+          return this.$store.dispatch(`${name}/getAsync`, ...arguments)
         }
       }
     )

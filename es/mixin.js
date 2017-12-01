@@ -15,7 +15,7 @@ export default {
     this.$options.methods = Object.assign({}, this.$options.methods, (_Object$assign2 = {}, _Object$assign2['getAsync' + upperFirst(camelCase(name))] = function undefined() {
       var _$store;
 
-      (_$store = this.$store).dispatch.apply(_$store, [name + '/getAsync'].concat(Array.prototype.slice.call(arguments)));
+      return (_$store = this.$store).dispatch.apply(_$store, [name + '/getAsync'].concat(Array.prototype.slice.call(arguments)));
     }, _Object$assign2));
   }
 };

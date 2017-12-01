@@ -1,11 +1,20 @@
 'use strict';
 
 exports.__esModule = true;
+exports.asyncModuleMixin = undefined;
 exports.getDefaultState = getDefaultState;
 exports.getDefaultTypes = getDefaultTypes;
 exports.getDefaultMutations = getDefaultMutations;
 exports.getDefaultActions = getDefaultActions;
 exports.default = getAsyncModule;
+
+var _mixin = require('./mixin');
+
+var _mixin2 = _interopRequireDefault(_mixin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.asyncModuleMixin = _mixin2.default;
 function getDefaultState() {
   return {
     isPending: true,

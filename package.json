@@ -1,6 +1,6 @@
 {
   "name": "@liqueflies/vuex-async-module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "vuex async module generator.",
   "main": "dist/index.js",
   "author": {

@@ -1,3 +1,7 @@
+import asyncModuleMixin from './mixin';
+
+export { asyncModuleMixin };
+
 export function getDefaultState() {
   return {
     isPending: true,

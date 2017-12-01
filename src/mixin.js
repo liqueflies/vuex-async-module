@@ -1,4 +1,3 @@
-import { mapState, mapActions } from 'vuex'
 import camelCase from 'lodash.camelcase'
 import upperFirst from 'lodash.upperfirst'
 
@@ -8,17 +7,23 @@ export default {
     this.$options.computed = Object.assign(
       {},
       this.$options.computed,
-      mapState(name, {
-        [name]: 'data',
-        [`${name}RequestIsPending`]: 'isPending'
-      })
+      {
+        [name]: function () {
+          return this.$store.state[name].data
+        },
+        [`${name}RequestIsPending`]: function () {
+          return this.$store.state[name].isPending
+        }
+      }
     )
     this.$options.methods = Object.assign(
       {},
       this.$options.methods,
-      mapActions(name, {
-        [`getAsync${upperFirst(camelCase(name))}`]: 'getAsync'
-      })
+      {
+        [`getAsync${upperFirst(camelCase(name))}`]: function () {
+          this.$store.dispatch(`${name}/getAsync`, ...arguments)
+        }
+      }
     )
   }
 }

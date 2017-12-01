@@ -1,6 +1,6 @@
 import { mapState, mapActions } from 'vuex'
 import camelCase from 'lodash.camelcase'
-import capitalize from 'lodash.capitalize'
+import upperFirst from 'lodash.upperfirst'
 
 export default {
   beforeCreate () {
@@ -17,7 +17,7 @@ export default {
       {},
       this.$options.methods,
       mapActions(name, {
-        [`getAsync${capitalize(camelCase(name))}`]: 'getAsync'
+        [`getAsync${upperFirst(camelCase(name))}`]: 'getAsync'
       })
     )
   }

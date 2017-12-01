@@ -16,34 +16,34 @@
       const store = new Vuex.Store({
         modules: {
           // using axios in this example
-          movies: VuexAsyncModule.default({ xhr: axios.get })
+          moviesList: VuexAsyncModule.default({ xhr: axios.get })
         }
       })
 
-      Vue.component('movies', {
+      Vue.component('moviesList', {
         data: function () {
           return {
             url: 'https://ghibliapi.herokuapp.com/films'
           }
         },
         mixins: [VuexAsyncModule.asyncModuleMixin],
-        template: `<h4 v-if="moviesRequestIsPending"> Loading... </h4>
+        template: `<h4 v-if="moviesListRequestIsPending"> Loading... </h4>
           <ul v-else>
             <li
-              v-for="movie in movies"
+              v-for="movie in moviesList"
               :key="movie.id">
               <h2> {{ movie.title }} - {{ movie.release_date }} </h2>
               <p> {{ movie.description }} </p>
             </li>
           </ul>`,
         beforeMount () {
-          this.getAsyncMovies({url: this.url })
+          this.getAsyncMoviesList({url: this.url })
         }
       })
       
       new Vue({
         el: '#container',
-        template: '<movies />',
+        template: '<movies-list />',
         store        
       })
     </script>

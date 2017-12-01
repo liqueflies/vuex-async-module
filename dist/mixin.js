@@ -8,7 +8,7 @@ var _lodash = require('lodash.camelcase');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _lodash3 = require('lodash.capitalize');
+var _lodash3 = require('lodash.upperfirst');
 
 var _lodash4 = _interopRequireDefault(_lodash3);
 

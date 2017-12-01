@@ -1,5 +1,5 @@
 
-/*! @liqueflies/vuex-async-module - v0.0.2
+/*! @liqueflies/vuex-async-module - v0.0.3
  * https://github.com/liqueflies/vuex-async-module
  * Copyright (c) 2017 - [object Object];
  * Licensed MIT
@@ -1843,25 +1843,6 @@ function toString$1(value) {
 }
 
 /**
- * Converts the first character of `string` to upper case and the remaining
- * to lower case.
- *
- * @static
- * @memberOf _
- * @since 3.0.0
- * @category String
- * @param {string} [string=''] The string to capitalize.
- * @returns {string} Returns the capitalized string.
- * @example
- *
- * _.capitalize('FRED');
- * // => 'Fred'
- */
-function capitalize$1(string) {
-  return upperFirst$1(toString$1(string).toLowerCase());
-}
-
-/**
  * Converts the first character of `string` to upper case.
  *
  * @static
@@ -1880,7 +1861,7 @@ function capitalize$1(string) {
  */
 var upperFirst$1 = createCaseFirst$1('toUpperCase');
 
-var lodash_capitalize = capitalize$1;
+var lodash_upperfirst = upperFirst$1;
 
 var mixin = {
   beforeCreate: function beforeCreate() {
@@ -1889,7 +1870,7 @@ var mixin = {
     var name = this.$options.name;
 
     this.$options.computed = Object.assign({}, this.$options.computed, mapState(name, (_mapState = {}, _mapState[name] = 'data', _mapState[name + 'RequestIsPending'] = 'isPending', _mapState)));
-    this.$options.methods = Object.assign({}, this.$options.methods, mapActions(name, (_mapActions = {}, _mapActions['getAsync' + lodash_capitalize(lodash_camelcase(name))] = 'getAsync', _mapActions)));
+    this.$options.methods = Object.assign({}, this.$options.methods, mapActions(name, (_mapActions = {}, _mapActions['getAsync' + lodash_upperfirst(lodash_camelcase(name))] = 'getAsync', _mapActions)));
   }
 };
 
